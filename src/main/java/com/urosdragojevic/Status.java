@@ -2,6 +2,6 @@ package com.urosdragojevic;
 
 public enum Status {
     DRAFT,
-    MOVED_TO_JIRA,
+    IN_PROGRESS,
     DOCUMENTS_PENDING
 }

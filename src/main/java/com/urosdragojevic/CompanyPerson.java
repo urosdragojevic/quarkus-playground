@@ -9,13 +9,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class LegalEntityPerson extends PanacheEntityBase {
+public class CompanyPerson extends PanacheEntityBase {
     @EmbeddedId
-    public LegalEntityPersonId legalEntityPersonId;
+    public CompanyPersonId companyPersonId;
 
     @ManyToOne
     @MapsId("legalEntityId")
-    public LegalEntity legalEntity;
+    public Company company;
 
     @ManyToOne
     @MapsId("personId")

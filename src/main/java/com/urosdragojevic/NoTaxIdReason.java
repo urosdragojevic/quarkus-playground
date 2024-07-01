@@ -1,6 +1,6 @@
 package com.urosdragojevic;
 
-public enum TinAbsenceReason {
+public enum NoTaxIdReason {
     NO_REASON,
     VALID_REASON
 }

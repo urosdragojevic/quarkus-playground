@@ -8,7 +8,7 @@ import org.hibernate.type.SqlTypes;
 import java.util.List;
 
 @Entity
-public class LegalEntity extends PanacheEntity {
+public class Company extends PanacheEntity {
     public String name;
     @Enumerated(EnumType.STRING)
     public Status status;
@@ -18,6 +18,6 @@ public class LegalEntity extends PanacheEntity {
     @JdbcTypeCode(SqlTypes.JSON)
     @Column(columnDefinition = "jsonb")
     public List<TaxInformation> taxInformation;
-    @OneToMany(mappedBy = "legalEntity", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    public List<LegalEntityPerson> persons;
+    @OneToMany(mappedBy = "company", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    public List<CompanyPerson> persons;
 }

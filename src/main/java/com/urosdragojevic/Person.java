@@ -12,5 +12,5 @@ import java.util.List;
 public class Person extends PanacheEntity {
     public String firstName;
     @OneToMany(mappedBy = "person", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    public List<LegalEntityPerson> legalEntityPersonList;
+    public List<CompanyPerson> companyPersonList;
 }

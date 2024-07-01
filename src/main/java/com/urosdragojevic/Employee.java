@@ -16,5 +16,5 @@ public class Employee extends PanacheEntity {
     public String email;
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "employee")
     @JsonBackReference
-    public List<LegalEntity> assignedTo = new ArrayList<>();
+    public List<Company> assignedTo = new ArrayList<>();
 }
