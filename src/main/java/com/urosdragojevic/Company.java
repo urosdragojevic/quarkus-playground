@@ -12,12 +12,10 @@ public class Company extends PanacheEntity {
     public String name;
     @Enumerated(EnumType.STRING)
     public Status status;
-    @ManyToOne(cascade = CascadeType.ALL)
-    public Employee employee;
     public Address address;
     @JdbcTypeCode(SqlTypes.JSON)
     @Column(columnDefinition = "jsonb")
     public List<TaxInformation> taxInformation;
-    @OneToMany(mappedBy = "company", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    public List<CompanyPerson> persons;
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    public Website website;
 }
