@@ -25,6 +25,14 @@ public class Company extends PanacheEntity {
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "company_id")
     public List<Vehicle> vehicles;
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(
+            joinColumns = @JoinColumn(name = "company_id"),
+            inverseJoinColumns = @JoinColumn(name = "products_id")
+    )
+    public List<Product> products;
+
+
 
     @PrePersist
     public void prePersist() {
