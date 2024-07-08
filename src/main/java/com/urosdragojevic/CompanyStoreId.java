@@ -2,13 +2,11 @@ package com.urosdragojevic;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
-import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.Objects;
 
 @Embeddable
-@Setter
 public class CompanyStoreId implements Serializable {
     @Column(name = "company_id")
     public Long companyId;
