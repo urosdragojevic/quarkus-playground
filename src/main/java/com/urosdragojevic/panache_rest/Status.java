@@ -1,4 +1,4 @@
-package com.urosdragojevic;
+package com.urosdragojevic.panache_rest;
 
 public enum Status {
     DRAFT,
