@@ -31,6 +31,8 @@ public class Company extends PanacheEntity {
             inverseJoinColumns = @JoinColumn(name = "products_id")
     )
     public List<Product> products;
+    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, orphanRemoval = true)
+    public List<CompanyStore> stores;
 
 
 
@@ -49,6 +51,11 @@ public class Company extends PanacheEntity {
         // Handle bidirectional relationship
         for (Person p : persons) {
             p.company = this;
+        }
+        // Handle join table entity
+        // TODO: Handle update when id is specified
+        for (CompanyStore cp : stores) {
+            cp.company = this;
         }
     }
 }
