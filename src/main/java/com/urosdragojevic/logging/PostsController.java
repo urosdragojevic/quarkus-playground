@@ -2,6 +2,7 @@ package com.urosdragojevic.logging;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import jakarta.validation.Valid;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
@@ -14,6 +15,8 @@ public class PostsController {
 
     @Inject
     PostsService service;
+    @Inject
+    PostMapper postMapper;
 
     @GET
     public List<Post> getPosts() {
@@ -21,7 +24,8 @@ public class PostsController {
     }
 
     @POST
-    public Post savePost(Post post) {
-        return service.createPost(post);
+    public PostDto savePost(@Valid Post post) {
+        Post newPost = service.createPost(post);
+        return postMapper.toDto(newPost);
     }
 }
