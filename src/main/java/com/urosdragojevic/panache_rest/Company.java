@@ -34,8 +34,6 @@ public class Company extends PanacheEntity {
     @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, orphanRemoval = true)
     public List<CompanyStore> stores;
 
-
-
     @PrePersist
     public void prePersist() {
         // Handle existing website updates
