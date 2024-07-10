@@ -19,8 +19,7 @@ public class PostsService {
     }
 
     @Transactional
-    public Post createPost(Post post) {
+    public void createPost(Post post) {
         repository.persist(post);
-        return post;
     }
 }

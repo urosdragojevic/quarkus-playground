@@ -30,8 +30,8 @@ class PostsServiceTest {
     void createPost_success() {
         Post post = new Post();
         post.setTitle("A new post");
-        Post savedPost = service.createPost(post);
-        Post postFromDb = entityManager.find(Post.class, savedPost.getId());
+        service.createPost(post);
+        Post postFromDb = entityManager.find(Post.class, post.getId());
         assertEquals("A new post", postFromDb.getTitle());
     }
 }

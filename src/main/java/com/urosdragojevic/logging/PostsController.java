@@ -25,7 +25,7 @@ public class PostsController {
 
     @POST
     public PostDto savePost(@Valid Post post) {
-        Post newPost = service.createPost(post);
-        return postMapper.toDto(newPost);
+        service.createPost(post);
+        return postMapper.toDto(post);
     }
 }

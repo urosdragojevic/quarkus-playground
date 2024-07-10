@@ -7,5 +7,4 @@ import java.util.UUID;
 
 @ApplicationScoped
 public class PostsRepository implements PanacheRepositoryBase<Post, UUID> {
-
 }

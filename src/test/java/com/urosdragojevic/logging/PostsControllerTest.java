@@ -9,7 +9,6 @@ import java.util.List;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 @QuarkusTest
@@ -35,7 +34,6 @@ class PostsControllerTest {
     void createPost_success() {
         Post newPost = new Post();
         newPost.setTitle("Test post");
-        when(service.createPost(any())).thenReturn(newPost);
         PostDto result = given()
                 .contentType(ContentType.JSON)
                 .body(newPost)
@@ -52,7 +50,6 @@ class PostsControllerTest {
     void createPost_titleBlank_400() {
         Post newPost = new Post();
         newPost.setTitle("");
-        when(service.createPost(any())).thenReturn(newPost);
         given()
                 .contentType(ContentType.JSON)
                 .body(newPost)
@@ -65,7 +62,6 @@ class PostsControllerTest {
     @Test
     void createPost_titleNull_400() {
         Post newPost = new Post();
-        when(service.createPost(any())).thenReturn(newPost);
         given()
                 .contentType(ContentType.JSON)
                 .body(newPost)
